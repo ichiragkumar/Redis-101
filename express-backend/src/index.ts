@@ -18,7 +18,7 @@ app.post("/submit", async (req, res)=>{
         try {
             // push this to database using prisma or mongoose
 
-            clinet.lPush("submissions",JSON.stringify({problemId, userId, code, language}))
+            await clinet.lPush("submissions",JSON.stringify({problemId, userId, code, language}))
             res.status(201).json({msg:"submission recieve"})
         } catch (error) {
             console.log(error);
